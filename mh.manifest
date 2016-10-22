@@ -6,7 +6,10 @@ CACHE:
 index.html
 js/script.js
 js/jquery-1.11.3.min.js
+js/jquery.validate.min.js
 img/home.png
 img/weekend.png
 img/player.png
+img/back.png
+img/registration.png
 css/style.css

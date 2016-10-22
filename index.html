@@ -12,45 +12,58 @@
 
 <body>
 	<section class="page" id="home">
-		<div id="bt_website" class="btn red" onclick="show('website');"></div>
-		<div id="bt_eplanning" class="btn red" onclick="show('eplanning');"></div>
-		<div id="bt_weekend" class="btn red" onclick="show('weekend');"></div>
+		<div id="bt_website" class="btn" onclick="show('website');"></div>
+		<div id="bt_eplanning" class="btn" onclick="show('eplanning');"></div>
+		<div id="bt_weekend" class="btn" onclick="show('weekend');"></div>
 	</section>
 	<section class="page" id="website">
-		<div class="bt_back red" onclick="show('home');"></div>
+		<iframe src="http://www.mercuriushealth.com/" frameborder="0" height="100%" width="100%" scrolling="auto"></iframe>
+		<div id="bt_back_logo"></div>
+		<div class="bt_back" onclick="show('home');"></div>
 	</section>
 	<section class="page" id="eplanning">
-		<div class="bt_back red" onclick="show('home');"></div>
+		<div class="bt_back" onclick="show('home');"></div>
 		<div class="vd_wrapper">
-			<video id="vd_eplanning">
-				<source src="videos/eplanning.mp4" type="video/mp4">
-				Your browser does not support HTML5 video.
-			</video>
+			<iframe id="vd_eplanning" class="vd_iframe" frameborder="0"></iframe>
 		</div>
 	</section>
 	<section class="page" id="weekend">
-		<div class="bt_back red" onclick="show('home');"></div>
-		<div id="bt_help" class="bt_small red" onclick="show('weekend_video');"></div>
-		<div id="bt_option1" class="bt_option red" onclick="show('registration');"></div>
-		<div id="bt_option2" class="bt_option red" onclick="show('weekend_video');"></div>
+		<div class="bt_back" onclick="show('home');"></div>
+		<div id="bt_help" class="bt_small" onclick="show('weekend_video');"></div>
+		<div id="bt_option1" class="bt_option" onclick="show('registration');"></div>
+		<div id="bt_option2" class="bt_option" onclick="show('weekend_video');"></div>
 	</section>
 	<section class="page" id="weekend_video">
-		<div class="bt_back red" onclick="show('weekend');"></div>
+		<div class="bt_back" onclick="show('weekend');"></div>
 		<div class="vd_wrapper">
-			<video id="vd_weekend">
-				<source src="videos/mh.mp4" type="video/mp4">
-				Your browser does not support HTML5 video.
-			</video>
+			<iframe id="vd_weekend" class="vd_iframe" frameborder="0"></iframe>
 		</div>
 	</section>
 	<section class="page" id="registration">
-		<div class="bt_back red" onclick="show('weekend');"></div>
-		<div id="bt_ok" class="bt_small red" onclick="show('home');"></div>
+		<div class="bt_back" onclick="show('weekend');"></div>
+		<div id="bt_ok" class="" onclick="save();"></div>
+		<form id="form">
+			<div class="form-group">
+				<div id="input_name_row" class="input_row input-group">
+					<input type="text" class="form_input" id="inputName" name="inputName"/>
+				</div>
+				<div id="input_email_row" class="input_row input-group">
+					<input type="text" class="form_input" id="inputEmail" name="inputEmail"/>
+				</div>
+				<div id="input_position_row" class="input_row input-group">
+					<input type="text" class="form_input" id="inputPosition" name="inputPosition"/>
+				</div>
+				<div id="input_country_row" class="input_row input-group">
+					<input type="text" class="form_input" id="inputCountry" name="inputCountry"/>
+				</div>
+			</div>
+		</form>
 	</section>
 	<section class="page" id="export">
 	</section>
 
 	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 
