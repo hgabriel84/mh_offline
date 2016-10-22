@@ -12,26 +12,40 @@
 
 <body>
 	<section class="page" id="home">
-		<div class="btn btn_website" onclick="show('website');"></div>
-		<div class="btn btn_eplanning" onclick="show('eplanning');"></div>
-		<div class="btn btn_weekend" onclick="show('weekend');"></div>
+		<div id="bt_website" class="btn red" onclick="show('website');"></div>
+		<div id="bt_eplanning" class="btn red" onclick="show('eplanning');"></div>
+		<div id="bt_weekend" class="btn red" onclick="show('weekend');"></div>
 	</section>
 	<section class="page" id="website">
-		<div class="btn_small btn_back" onclick="show('home');"></div>
+		<div class="bt_back red" onclick="show('home');"></div>
 	</section>
 	<section class="page" id="eplanning">
-		<div class="btn_small btn_back" onclick="show('home');"></div>
+		<div class="bt_back red" onclick="show('home');"></div>
+		<div class="vd_wrapper">
+			<video id="vd_eplanning">
+				<source src="videos/eplanning.mp4" type="video/mp4">
+				Your browser does not support HTML5 video.
+			</video>
+		</div>
 	</section>
 	<section class="page" id="weekend">
-		<div class="btn_small btn_back" onclick="show('home');"></div>
-		<div class="btn_small btn_help" onclick="show('weekend_video');"></div>
+		<div class="bt_back red" onclick="show('home');"></div>
+		<div id="bt_help" class="bt_small red" onclick="show('weekend_video');"></div>
+		<div id="bt_option1" class="bt_option red" onclick="show('registration');"></div>
+		<div id="bt_option2" class="bt_option red" onclick="show('weekend_video');"></div>
 	</section>
 	<section class="page" id="weekend_video">
-		<div class="btn_small btn_back" onclick="show('weekend');"></div>
+		<div class="bt_back red" onclick="show('weekend');"></div>
+		<div class="vd_wrapper">
+			<video id="vd_weekend">
+				<source src="videos/mh.mp4" type="video/mp4">
+				Your browser does not support HTML5 video.
+			</video>
+		</div>
 	</section>
 	<section class="page" id="registration">
-		<div class="btn_small btn_back" onclick="show('weekend');"></div>
-		<div class="btn_small btn_ok" onclick="show('home');"></div>
+		<div class="bt_back red" onclick="show('weekend');"></div>
+		<div id="bt_ok" class="bt_small red" onclick="show('home');"></div>
 	</section>
 	<section class="page" id="export">
 	</section>
