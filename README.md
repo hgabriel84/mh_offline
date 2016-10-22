@@ -1,2 +1,2 @@
 # mh
-webapp for mercury health
+webapp for mercurius health

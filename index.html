@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html lang="en" manifest="mh.manifest">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<title>Mercurius Health</title>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<section class="page" id="home">
+		<div class="btn btn_website" onclick="show('website');"></div>
+		<div class="btn btn_eplanning" onclick="show('eplanning');"></div>
+		<div class="btn btn_weekend" onclick="show('weekend');"></div>
+	</section>
+	<section class="page" id="website">
+		<div class="btn_small btn_back" onclick="show('home');"></div>
+	</section>
+	<section class="page" id="eplanning">
+		<div class="btn_small btn_back" onclick="show('home');"></div>
+	</section>
+	<section class="page" id="weekend">
+		<div class="btn_small btn_back" onclick="show('home');"></div>
+		<div class="btn_small btn_help" onclick="show('weekend_video');"></div>
+	</section>
+	<section class="page" id="weekend_video">
+		<div class="btn_small btn_back" onclick="show('weekend');"></div>
+	</section>
+	<section class="page" id="registration">
+		<div class="btn_small btn_back" onclick="show('weekend');"></div>
+		<div class="btn_small btn_ok" onclick="show('home');"></div>
+	</section>
+	<section class="page" id="export">
+	</section>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
