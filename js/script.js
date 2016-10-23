@@ -204,7 +204,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   var link = document.createElement("a");
   link.href = uri;
   link.style = "visibility:hidden";
-  link.download = fileName + ".csv";
+  // link.download = fileName + ".csv";
   link.target = "_blank";
   document.body.appendChild(link);
   link.click();
