@@ -15,8 +15,10 @@ var pagenameExport = 'export';
 var btExportCSV = $('#bt_export_csv');
 var btReset = $('#bt_reset');
 var btPassword = $('#bt_password');
+var btGenerateWinner = $('#bt_generate_winner');
 var uiExportPassword = $('#export_password');
 var uiExportContent = $('#export_content');
+var uiWinner = $('#lb_winner');
 
 $(function() {
   //set localStorage
@@ -53,6 +55,19 @@ function config() {
       uiExportPassword.hide();
     }
     inPassword.val("");
+  });
+
+  // generate a random winner
+  btGenerateWinner.click(function(e) {
+    e.preventDefault();
+    if(localStorage.contacts) {
+      var contacts = JSON.parse(localStorage["contacts"]);
+      if(contacts.length > 0) {
+        var max = contacts.length - 1;
+        var winner = contacts[getRandomInt(0, max)];
+        uiWinner.html('WINNER:<br/>' + winner.name + '<br/>' + winner.email + '<br/>' + winner.position + '<br/>' + winner.country);
+      }
+    }
   });
 }
 
@@ -185,4 +200,8 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   var fileName = ReportTitle;
   var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
   window.location.href = uri;
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
