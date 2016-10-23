@@ -195,7 +195,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     return;
   }
 
-  window.open('data:text/csv;charset=utf-8,' + escape(CSV));
+  window.open('data:text/plain;charset=utf-8,' + escape(CSV));
 }
 
 function getRandomInt(min, max) {
