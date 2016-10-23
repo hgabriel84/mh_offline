@@ -196,13 +196,14 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   }
 
   var uri = 'data:application/octet-stream;charset=utf-8,' + escape(CSV);
-  var link = document.createElement("a");
-  link.href = uri;
-  link.style = "visibility:hidden";
-  link.download = "contacts.csv";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  window.location.href = uri;
+  // var link = document.createElement("a");
+  // link.href = uri;
+  // link.style = "visibility:hidden";
+  // link.download = "contacts.csv";
+  // document.body.appendChild(link);
+  // link.click();
+  // document.body.removeChild(link);
 }
 
 function getRandomInt(min, max) {
