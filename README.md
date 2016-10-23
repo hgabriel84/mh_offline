@@ -1,2 +1,2 @@
 # mh
-webapp for mercurius health
+webapp for a mercurius health event
