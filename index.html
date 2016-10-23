@@ -15,6 +15,7 @@
 		<div id="bt_website" class="btn" onclick="show('website');"></div>
 		<div id="bt_eplanning" class="btn" onclick="show('eplanning');"></div>
 		<div id="bt_weekend" class="btn" onclick="show('weekend');"></div>
+		<div id="bt_export" onclick="show('export');"></div>
 	</section>
 	<section class="page" id="website">
 		<iframe src="http://mercuriushealth.com" frameborder="0" height="100%" width="100%" scrolling="auto"></iframe>
@@ -43,23 +44,32 @@
 		<div class="bt_back" onclick="show('weekend');"></div>
 		<div id="bt_ok" class="" onclick="save();"></div>
 		<form id="form">
-			<div class="form-group">
-				<div id="input_name_row" class="input_row input-group">
-					<input type="text" class="form_input" id="inputName" name="inputName"/>
-				</div>
-				<div id="input_email_row" class="input_row input-group">
-					<input type="text" class="form_input" id="inputEmail" name="inputEmail"/>
-				</div>
-				<div id="input_position_row" class="input_row input-group">
-					<input type="text" class="form_input" id="inputPosition" name="inputPosition"/>
-				</div>
-				<div id="input_country_row" class="input_row input-group">
-					<input type="text" class="form_input" id="inputCountry" name="inputCountry"/>
-				</div>
+			<div id="input_name_row" class="input_row">
+				<input type="text" class="form_input" id="in_name" name="in_name"/>
+			</div>
+			<div id="input_email_row" class="input_row">
+				<input type="text" class="form_input" id="in_email" name="in_email"/>
+			</div>
+			<div id="input_position_row" class="input_row">
+				<input type="text" class="form_input" id="in_position" name="in_position"/>
+			</div>
+			<div id="input_country_row" class="input_row">
+				<input type="text" class="form_input" id="in_country" name="in_country"/>
 			</div>
 		</form>
 	</section>
 	<section class="page" id="export">
+		<section id="export_password">
+			<form id="form_password">
+				<input type="password" id="in_password"/>
+				<button type="button" id="bt_password">OK</button>
+			</form>
+		</section>
+		<section id="export_content">
+			<button type="button" id="bt_export_csv">Export contacts</button>
+			<button type="button" id="bt_reset">delete ALL data</button>
+		</section>
+		<div class="bt_back" onclick="show('home');"></div>
 	</section>
 
 	<script src="js/jquery-1.11.3.min.js"></script>

@@ -1,19 +1,60 @@
 var page = $('.page');
 var home = $('#home');
 var inForm = $('#form');
-var inName = $("#inputName");
-var inEmail = $("#inputEmail");
-var inPosition = $("#inputPosition");
-var inCountry = $("#inputCountry");
-var vd_eplanning = $('#vd_eplanning');
-var vd_weekend = $('#vd_weekend');
-var pagename_eplanning = 'eplanning';
-var pagename_weekend_video = 'weekend_video';
+var inFormPassword = $('#form_password');
+var inName = $('#in_name');
+var inEmail = $('#in_email');
+var inPosition = $('#in_position');
+var inCountry = $('#in_country');
+var inPassword = $('#in_password');
+var vdEplanning = $('#vd_eplanning');
+var vdWeekend = $('#vd_weekend');
+var pagenameEplanning = 'eplanning';
+var pagenameWeekendVideo = 'weekend_video';
+var pagenameExport = 'export';
+var btExportCSV = $('#bt_export_csv');
+var btReset = $('#bt_reset');
+var btPassword = $('#bt_password');
+var uiExportPassword = $('#export_password');
+var uiExportContent = $('#export_content');
 
 $(function() {
+  //set localStorage
+  if (!localStorage.contacts) {
+    localStorage.contacts = JSON.stringify([]);
+  }
+
+  config();
+
 	page.hide();
 	home.show();
 });
+
+function config() {
+  //export contacts to csv file
+  btExportCSV.click(function(e) {
+    if (localStorage.contacts) {
+      JSONToCSVConvertor(localStorage.contacts, "contacts", true);
+    }
+  });
+
+  // delete data
+  btReset.click(function(e) {
+    localStorage.contacts = JSON.stringify([]);
+  });
+
+  // validate password and show export interface
+  btPassword.click(function(e) {
+    e.preventDefault();
+    inFormPassword.submit();
+    var password = inPassword.val();
+    if(password == "mercurius") {
+      uiExportContent.show();
+      uiExportPassword.hide();
+    }
+    inPassword.val("");
+  });
+}
 
 function show(id) {
 	page.hide();
@@ -21,30 +62,40 @@ function show(id) {
 
   stopVideos();
 
-  if(id == pagename_eplanning) {
+  if(id == pagenameEplanning) {
     startVideoEplanning();
   }
 
-  if(id == pagename_weekend_video) {
+  if(id == pagenameWeekendVideo) {
     startVideoWeekend();
+  }
+
+  if(id == pagenameExport) {
+    uiExportPassword.show();
+    uiExportContent.hide();
   }
 }
 
 function startVideoEplanning() {
-  vd_eplanning[0].src = "https://www.youtube.com/embed/wgFKdVVjh3I?enablejsapi=1&controls=0&autoplay=1&modestbranding=1";
+  vdEplanning[0].src = "https://www.youtube.com/embed/wgFKdVVjh3I?enablejsapi=1&controls=0&autoplay=1&modestbranding=1";
 }
 
 function startVideoWeekend() {
-  vd_weekend[0].src = "https://www.youtube.com/embed/wgFKdVVjh3I?enablejsapi=1&controls=0&autoplay=1&modestbranding=1";
+  vdWeekend[0].src = "https://www.youtube.com/embed/wgFKdVVjh3I?enablejsapi=1&controls=0&autoplay=1&modestbranding=1";
 }
 
 function stopVideos() {
-  vd_eplanning[0].src = "";
-  vd_weekend[0].src = "";
+  vdEplanning[0].src = "";
+  vdWeekend[0].src = "";
 }
 
 // prevent submit of form with user data
 inForm.submit(function(event) {
+  event.preventDefault();
+});
+
+// prevent submit of form with password
+inFormPassword.submit(function(event) {
   event.preventDefault();
 });
 
@@ -69,12 +120,10 @@ function save() {
     contact.position = position;
     contact.country = country;
 
-/*
     var contacts = JSON.parse(localStorage["contacts"]);
     contacts.push(contact);
     // save contacts at localStorage
     localStorage["contacts"] = JSON.stringify(contacts);
-*/
 
     //clear input data
     inName.val("");
@@ -89,17 +138,51 @@ function save() {
 
 inForm.validate({
   rules: {
-    inputName: {
+    in_name: {
       required: true
     },
-    inputEmail: {
+    in_email: {
       required: true
     },
-    inputPosition: {
+    in_position: {
       required: true
     },
-    inputCountry: {
+    in_country: {
       required: true
     },
   }
 });
+
+function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+  var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+  var CSV = '';
+
+  CSV += ReportTitle + '\r\n\n';
+
+  if (ShowLabel) {
+    var row = "";
+    for (var index in arrData[0]) {
+      row += index + ',';
+    }
+    row = row.slice(0, -1);
+    CSV += row + '\r\n';
+  }
+
+  for (var i = 0; i < arrData.length; i++) {
+    var row = "";
+    for (var index in arrData[i]) {
+      row += '"' + arrData[i][index] + '",';
+    }
+    row.slice(0, row.length - 1);
+    CSV += row + '\r\n';
+  }
+
+  if (CSV == '') {
+    alert("Invalid data");
+    return;
+  }
+
+  var fileName = ReportTitle;
+  var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+  window.location.href = uri;
+}

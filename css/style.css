@@ -25,9 +25,8 @@ html, body, section {
 	background-image: url(../img/registration.png);
 }
 
-.red {
-	background-color: red;
-	opacity: 0.5;
+#export {
+	background-image: url(../img/player.png);
 }
 
 .btn {
@@ -70,6 +69,15 @@ html, body, section {
 .vd_wrapper iframe {
 	width: 100%;
 	height: 100%;
+}
+
+#bt_export {
+	position: absolute;
+	width: 3%;
+	height: 3%;
+	border-radius: 100px;
+	top: 0;
+	right: 0;
 }
 
 #bt_website {
@@ -122,6 +130,11 @@ html, body, section {
 	right: 1.5%;
 }
 
+#bt_reset {
+	background-color:red;
+	color:white;
+}
+
 .input_row {
 	position: absolute;
 	width: 52.5%;
@@ -153,4 +166,12 @@ html, body, section {
 	background: transparent;
 	color: #000000;
 	font-size: 16px;
+}
+
+#export section {
+	position: absolute;
+	width: initial;
+	height: initial;
+	top: 1%;
+	right: 1%;
 }
