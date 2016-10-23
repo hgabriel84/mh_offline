@@ -198,17 +198,17 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   }
 
   var fileName = ReportTitle;
-  var uri = 'data:application/csv;charset=utf-8,' + escape(CSV);
-  //window.location.href = uri;
+  var uri = 'data:application/octet;charset=utf-8,' + escape(CSV);
+  window.location.href = uri;
   
-  var link = document.createElement("a");
-  link.href = "www.abola.pt";//uri;
+  //var link = document.createElement("a");
+  //link.href = "www.abola.pt";//uri;
   //link.style = "visibility:hidden";
   //link.download = fileName + ".csv";
-  link.target = "_blank";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  //link.target = "_blank";
+  //document.body.appendChild(link);
+  //link.click();
+  //document.body.removeChild(link);
   
 }
 
