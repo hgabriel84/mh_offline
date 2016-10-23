@@ -195,7 +195,14 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     return;
   }
 
-  window.open('data:text/csv;charset=utf-8,' + escape(CSV));
+  var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+  var link = document.createElement("a");
+  link.href = uri;
+  link.style = "visibility:hidden";
+  link.download = "contacts.csv";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 function getRandomInt(min, max) {
