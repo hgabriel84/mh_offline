@@ -195,7 +195,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     return;
   }
 
-  var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+  var uri = 'data:application/octet-stream;charset=utf-8,' + escape(CSV);
   var link = document.createElement("a");
   link.href = uri;
   link.style = "visibility:hidden";
