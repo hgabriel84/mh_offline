@@ -199,7 +199,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
 
   var fileName = ReportTitle;
   var uri = 'Content-Disposition:attachment;data:text/csv;charset=utf-8,' + escape(CSV);
-  //window.location.href = uri;
+  window.location.href = uri;
   
   var link = document.createElement("a");
   link.href = uri;
