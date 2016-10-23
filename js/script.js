@@ -208,7 +208,6 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  */
 }
 
 function getRandomInt(min, max) {
