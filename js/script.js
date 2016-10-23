@@ -172,8 +172,6 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
   var CSV = '';
 
-  CSV += ReportTitle + '\r\n\n';
-
   if (ShowLabel) {
     var row = "";
     for (var index in arrData[0]) {
@@ -197,18 +195,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     return;
   }
 
-  //var fileName = ReportTitle;
-  //var uri = 'data:application/octet;charset=utf-8,' + escape(CSV);
   window.open('data:text/csv;charset=utf-8,' + escape(CSV));
-  //window.location.href = uri;
-  
-  // var link = document.createElement("a");
-  // link.href = uri;
-  // //link.style = "visibility:hidden";
-  // link.download = fileName + ".csv";
-  // document.body.appendChild(link);
-  // link.click();
-  // document.body.removeChild(link);
 }
 
 function getRandomInt(min, max) {
