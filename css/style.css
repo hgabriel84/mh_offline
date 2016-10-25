@@ -29,6 +29,10 @@ html, body, section {
 	background-image: url(../img/player.png);
 }
 
+#topics {
+	background-image: url(../img/topics.png);
+}
+
 .btn {
 	position: absolute;
 	width: 18%;
@@ -177,6 +181,19 @@ html, body, section {
 	background: transparent;
 	color: #000000;
 	font-size: 19px;
+}
+
+#form_topics {
+	position: absolute;
+	left: 54.8%;
+	top: 37%;
+	width: 4%;
+	height: 27%;
+}
+
+#form_topics input {
+	width: 100%;
+	height: 16.5%;
 }
 
 #form_password {

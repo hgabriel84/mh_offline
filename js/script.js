@@ -1,5 +1,9 @@
 var page = $('.page');
-var home = $('#home');
+var pagenameHome = 'home';
+var pagenameEplanning = 'eplanning';
+var pagenameWeekendVideo = 'weekend_video';
+var pagenameExport = 'export';
+var pagenameTopics = 'topics';
 var inForm = $('#form');
 var inFormPassword = $('#form_password');
 var inName = $('#in_name');
@@ -9,9 +13,6 @@ var inCountry = $('#in_country');
 var inPassword = $('#in_password');
 var vdEplanning = $('#vd_eplanning');
 var vdWeekend = $('#vd_weekend');
-var pagenameEplanning = 'eplanning';
-var pagenameWeekendVideo = 'weekend_video';
-var pagenameExport = 'export';
 var btExportCSV = $('#bt_export_csv');
 var btReset = $('#bt_reset');
 var btPassword = $('#bt_password');
@@ -27,9 +28,7 @@ $(function() {
   }
 
   config();
-
-	page.hide();
-	home.show();
+  show(pagenameHome);
 });
 
 function config() {
@@ -146,9 +145,13 @@ function save() {
     inPosition.val("");
     inCountry.val("");
 
-    page.hide();
-    home.show();
+    show(pagenameTopics);
   }
+}
+
+// save user topics at localStorage with json
+function saveTopics() {
+  show(pagenameHome);
 }
 
 inForm.validate({
