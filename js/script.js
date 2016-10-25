@@ -6,11 +6,17 @@ var pagenameExport = 'export';
 var pagenameTopics = 'topics';
 var inForm = $('#form');
 var inFormPassword = $('#form_password');
+var inFormTopics = $('#form_topics');
 var inName = $('#in_name');
 var inEmail = $('#in_email');
 var inPosition = $('#in_position');
 var inCountry = $('#in_country');
 var inPassword = $('#in_password');
+var cbEplanning = $('#cb_eplanning');
+var cbCommissioning = $('#cb_commissioning');
+var cbTraining = $('#cb_training');
+var cbQuality = $('#cb_quality');
+var cbSupport = $('#cb_support');
 var vdEplanning = $('#vd_eplanning');
 var vdWeekend = $('#vd_weekend');
 var btExportCSV = $('#bt_export_csv');
@@ -20,6 +26,7 @@ var btGenerateWinner = $('#bt_generate_winner');
 var uiExportPassword = $('#export_password');
 var uiExportContent = $('#export_content');
 var uiWinner = $('#lb_winner');
+var contact;
 
 $(function() {
   //set localStorage
@@ -113,7 +120,12 @@ inFormPassword.submit(function(event) {
   event.preventDefault();
 });
 
-// save user data at localStorage with json
+// prevent submit of form with topics
+inFormTopics.submit(function(event) {
+  event.preventDefault();
+});
+
+// save user data
 function save() {
   inForm.submit();
   if (inForm.valid()) {
@@ -128,16 +140,11 @@ function save() {
     country = country.substring(country.indexOf('=') + 1);
 
     //save user data
-    var contact = new Object();
+    contact = new Object();
     contact.name = name;
     contact.email = email;
     contact.position = position;
     contact.country = country;
-
-    var contacts = JSON.parse(localStorage["contacts"]);
-    contacts.push(contact);
-    // save contacts at localStorage
-    localStorage["contacts"] = JSON.stringify(contacts);
 
     //clear input data
     inName.val("");
@@ -149,8 +156,29 @@ function save() {
   }
 }
 
-// save user topics at localStorage with json
+// save user topics and user data at localStorage with json
 function saveTopics() {
+  inFormTopics.submit();
+  var eplanning = cbEplanning.is(':checked') ? 'x' : '';
+  var commissioning = cbCommissioning.is(':checked') ? 'x' : '';
+  var training = cbTraining.is(':checked') ? 'x' : '';
+  var quality = cbQuality.is(':checked') ? 'x' : '';
+  var support = cbSupport.is(':checked') ? 'x' : '';
+
+  contact.eplanning = eplanning;
+  contact.commissioning = commissioning;
+  contact.training = training;
+  contact.quality_assessment = quality;
+  contact.operational_go_live_support = support;
+
+  var contacts = JSON.parse(localStorage["contacts"]);
+  contacts.push(contact);
+  // save contacts at localStorage
+  localStorage["contacts"] = JSON.stringify(contacts);
+
+  //clear checkboxes
+  $(":checkbox").prop('checked', false);
+
   show(pagenameHome);
 }
 
