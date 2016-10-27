@@ -226,7 +226,7 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     return;
   }
 
-  var uri = 'data:text/plain;charset=utf-8,' + escape(CSV);
+  var uri = 'data:text/plain;charset=ISO-8859-1,' + escape(CSV);
   window.open(uri);
 }
 
