@@ -103,11 +103,11 @@ function show(id) {
 }
 
 function startVideoEplanning() {
-  vdEplanning[0].src = "https://www.youtube.com/embed/0NBN6inxHZc?enablejsapi=1&autoplay=1&modestbranding=1";
+  vdEplanning[0].src = "https://www.youtube.com/embed/0NBN6inxHZc?enablejsapi=1&autoplay=1&modestbranding=1&rel=0";
 }
 
 function startVideoWeekend() {
-  vdWeekend[0].src = "https://www.youtube.com/embed/-uYUolvK1Fo?enablejsapi=1&autoplay=1&modestbranding=1";
+  vdWeekend[0].src = "https://www.youtube.com/embed/-uYUolvK1Fo?enablejsapi=1&autoplay=1&modestbranding=1&rel=0";
 }
 
 function stopVideos() {
