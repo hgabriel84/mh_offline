@@ -171,8 +171,12 @@ html, body, section {
 	top: 52.4%;
 }
 
-#input_country_row {
+#input_institution_row {
 	top: 59.6%;
+}
+
+#input_country_row {
+	top: 66.9%;
 }
 
 .form_input {

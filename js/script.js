@@ -10,6 +10,7 @@ var inFormTopics = $('#form_topics');
 var inName = $('#in_name');
 var inEmail = $('#in_email');
 var inPosition = $('#in_position');
+var inInstitution = $('#in_institution');
 var inCountry = $('#in_country');
 var inPassword = $('#in_password');
 var cbEplanning = $('#cb_eplanning');
@@ -71,7 +72,11 @@ function config() {
       if(contacts.length > 0) {
         var max = contacts.length - 1;
         var winner = contacts[getRandomInt(0, max)];
-        uiWinner.html('WINNER:<br/>' + winner.name + '<br/>' + winner.email + '<br/>' + winner.position + '<br/>' + winner.country);
+        uiWinner.html('WINNER:<br/>' + winner.name + '<br/>'
+                                     + winner.email + '<br/>'
+                                     + winner.position + '<br/>'
+                                     + winner.institution + '<br/>'
+                                     + winner.country);
       }
     }
   });
@@ -98,11 +103,11 @@ function show(id) {
 }
 
 function startVideoEplanning() {
-  vdEplanning[0].src = "https://www.youtube.com/embed/51ftD3Jbnsk?enablejsapi=1&autoplay=1&modestbranding=1";
+  vdEplanning[0].src = "https://www.youtube.com/embed/0NBN6inxHZc?enablejsapi=1&autoplay=1&modestbranding=1";
 }
 
 function startVideoWeekend() {
-  vdWeekend[0].src = "https://www.youtube.com/embed/-qdjAbRwJ3Q?enablejsapi=1&autoplay=1&modestbranding=1";
+  vdWeekend[0].src = "https://www.youtube.com/embed/-uYUolvK1Fo?enablejsapi=1&autoplay=1&modestbranding=1";
 }
 
 function stopVideos() {
@@ -136,6 +141,8 @@ function save() {
     email = email.substring(email.indexOf('=') + 1);
     var position = inPosition.val();
     position = position.substring(position.indexOf('=') + 1);
+    var institution = inInstitution.val();
+    institution = institution.substring(institution.indexOf('=') + 1);
     var country = inCountry.val();
     country = country.substring(country.indexOf('=') + 1);
 
@@ -144,12 +151,14 @@ function save() {
     contact.name = name;
     contact.email = email;
     contact.position = position;
+    contact.institution = institution;
     contact.country = country;
 
     //clear input data
     inName.val("");
     inEmail.val("");
     inPosition.val("");
+    inInstitution.val("");
     inCountry.val("");
 
     show(pagenameTopics);
@@ -191,6 +200,9 @@ inForm.validate({
       required: true
     },
     in_position: {
+      required: true
+    },
+    in_institution: {
       required: true
     },
     in_country: {
