@@ -107,7 +107,7 @@ function startVideoEplanning() {
 }
 
 function startVideoWeekend() {
-  vdWeekend[0].src = "https://www.youtube.com/embed/-uYUolvK1Fo?enablejsapi=1&autoplay=1&modestbranding=1&rel=0";
+  vdWeekend[0].src = "https://www.youtube.com/embed/-qdjAbRwJ3Q?enablejsapi=1&autoplay=1&modestbranding=1&rel=0";
 }
 
 function stopVideos() {
