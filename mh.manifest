@@ -1,0 +1,16 @@
+CACHE MANIFEST
+ 
+# Version: 1.00
+
+CACHE:
+index.html
+css/style.css
+js/jquery.validate.min.js
+js/jquery-1.11.3.min.js
+js/script.js
+images/back.jpg
+images/home.png
+images/player.png
+images/registration.png
+images/topics.png
+images/weekend.png
