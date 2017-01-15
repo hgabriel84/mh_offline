@@ -1,7 +1,5 @@
 var page = $('.page');
 var pagenameHome = 'home';
-// var pagenameEplanning = 'eplanning';
-// var pagenameWeekendVideo = 'weekend_video';
 var pagenameExport = 'export';
 var pagenameTopics = 'topics';
 var inForm = $('#form');
@@ -18,8 +16,6 @@ var cbCommissioning = $('#cb_commissioning');
 var cbTraining = $('#cb_training');
 var cbQuality = $('#cb_quality');
 var cbSupport = $('#cb_support');
-// var vdEplanning = $('#vd_eplanning');
-// var vdWeekend = $('#vd_weekend');
 var btExportCSV = $('#bt_export_csv');
 var btReset = $('#bt_reset');
 var btPassword = $('#bt_password');
@@ -86,33 +82,10 @@ function show(id) {
 	page.hide();
 	$('#' + id).show();
 
-  stopVideos();
-
-  if(id == pagenameEplanning) {
-    startVideoEplanning();
-  }
-
-  if(id == pagenameWeekendVideo) {
-    startVideoWeekend();
-  }
-
   if(id == pagenameExport) {
     uiExportPassword.show();
     uiExportContent.hide();
   }
-}
-
-function startVideoEplanning() {
-  vdEplanning[0].src = "https://www.youtube.com/embed/0NBN6inxHZc?enablejsapi=1&autoplay=1&modestbranding=1&rel=0";
-}
-
-function startVideoWeekend() {
-  vdWeekend[0].src = "https://www.youtube.com/embed/-qdjAbRwJ3Q?enablejsapi=1&autoplay=1&modestbranding=1&rel=0";
-}
-
-function stopVideos() {
-  vdEplanning[0].src = "";
-  vdWeekend[0].src = "";
 }
 
 // prevent submit of form with user data
