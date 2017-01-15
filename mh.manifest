@@ -8,9 +8,9 @@ css/style.css
 js/jquery.validate.min.js
 js/jquery-1.11.3.min.js
 js/script.js
-images/back.png
-images/home.png
-images/player.png
-images/registration.png
-images/topics.png
-images/weekend.png
+img/back.png
+img/home.png
+img/player.png
+img/registration.png
+img/topics.png
+img/weekend.png
